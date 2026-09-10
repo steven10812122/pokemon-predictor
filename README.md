@@ -10,10 +10,6 @@
 - `docs/` — GitHub Pages 網站本體。純靜態頁面（HTML/CSS/JS），透過 [ONNX Runtime Web](https://onnxruntime.ai/docs/tutorials/web/) 在瀏覽器裡直接跑模型推論，圖片不會上傳到任何伺服器，也不需要架設後端。
   - `docs/model/pokemon_resnet50_int8.onnx` 是從 `best_model.pth` 匯出並做 int8 動態量化後的版本（100MB → 25MB），方便瀏覽器下載與推論。
 
-## 為什麼原本的前端沒有成功
-
-原本的 `frontend/`（React + Flask）把預測請求寫死打 `http://localhost:5000/predict`，也就是必須自己在本機跑 Flask 後端才能用，沒辦法變成一個大家都能打開的公開網站。現在改成模型直接在瀏覽器端用 WebAssembly 執行，整個網站是純靜態檔案，部署在 GitHub Pages 就能公開分享，不用再處理後端部署或跨網域問題。
-
 ## 本機開發
 
 ```bash
