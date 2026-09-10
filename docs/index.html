@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>寶可夢預測器</title>
+  <link rel="icon" href="favicon.ico" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>寶可夢預測器</h1>
+    <p class="subtitle">上傳一張寶可夢圖片，模型會直接在你的瀏覽器裡辨識，不需要任何後端伺服器</p>
+
+    <div class="card">
+      <input type="file" id="file-input" accept="image/*" />
+      <button class="upload-btn" id="pick-btn">選擇寶可夢圖片</button>
+
+      <div class="preview-wrap" id="preview-wrap">
+        <img id="preview-img" alt="預覽" />
+      </div>
+
+      <button class="upload-btn" id="predict-btn" disabled>開始預測</button>
+
+      <div class="status" id="status">
+        <div class="spinner"></div>
+        <span id="status-text">模型載入中...</span>
+      </div>
+
+      <div class="error-box" id="error-box"></div>
+
+      <div class="result-card" id="result-card">
+        <p class="result-title">發現寶可夢！</p>
+        <div class="result-names">
+          <span class="zh" id="result-zh"></span>
+          <span class="en" id="result-en"></span>
+        </div>
+        <div class="result-meta" id="result-meta"></div>
+        <div class="type-row" id="result-types"></div>
+        <p class="confidence" id="result-confidence"></p>
+      </div>
+    </div>
+
+    <footer>
+      模型在瀏覽器內以 ONNX Runtime Web 執行，圖片不會上傳到任何伺服器 ·
+      <a href="https://github.com/steven10812122/pokemon-predictor" target="_blank" rel="noopener">GitHub</a>
+    </footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.19.2/dist/ort.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

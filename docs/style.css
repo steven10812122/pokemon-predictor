@@ -1,0 +1,236 @@
+:root {
+  --poke-red: #ff0000;
+  --poke-red-dark: #cc0000;
+  --poke-blue: #3b4cca;
+  --poke-yellow: #ffde00;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", "Noto Sans TC", "Roboto", Arial, sans-serif;
+  background: url("pokeball-pattern.svg") repeat, linear-gradient(135deg, #ffde00 0%, #fff5b8 100%);
+  padding: 48px 16px;
+}
+
+.container {
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  color: var(--poke-red);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  -webkit-text-stroke: 1px var(--poke-red-dark);
+  letter-spacing: 2px;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #555;
+  margin-bottom: 24px;
+  font-size: 0.95rem;
+}
+
+.card {
+  background: #fff;
+  border: 8px solid var(--poke-blue);
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+
+.upload-btn {
+  display: block;
+  width: 100%;
+  height: 48px;
+  border-radius: 24px;
+  font-weight: bold;
+  font-size: 1.05rem;
+  border: 2px solid var(--poke-red-dark);
+  background: linear-gradient(45deg, var(--poke-red) 30%, #ff4444 90%);
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(255, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.upload-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(255, 0, 0, 0.4);
+}
+
+.upload-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+#file-input {
+  display: none;
+}
+
+.preview-wrap {
+  text-align: center;
+  margin: 24px 0;
+  display: none;
+}
+
+.preview-wrap.visible {
+  display: block;
+}
+
+#preview-img {
+  max-width: 100%;
+  max-height: 280px;
+  object-fit: contain;
+  border-radius: 16px;
+  border: 4px solid var(--poke-blue);
+  background: #f0f0f0;
+  padding: 8px;
+}
+
+.status {
+  text-align: center;
+  margin-top: 16px;
+  font-weight: bold;
+  color: var(--poke-blue);
+  display: none;
+}
+
+.status.visible {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(59, 76, 202, 0.25);
+  border-top-color: var(--poke-blue);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.error-box {
+  margin-top: 16px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  background: rgba(255, 0, 0, 0.1);
+  border: 2px solid var(--poke-red);
+  color: var(--poke-red-dark);
+  text-align: center;
+  display: none;
+}
+
+.error-box.visible {
+  display: block;
+}
+
+.result-card {
+  margin-top: 24px;
+  padding: 20px;
+  border-radius: 16px;
+  border: 4px solid var(--poke-blue);
+  background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+  display: none;
+}
+
+.result-card.visible {
+  display: block;
+}
+
+.result-title {
+  text-align: center;
+  color: var(--poke-blue);
+  font-weight: bold;
+  margin: 0 0 16px;
+}
+
+.result-names {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.result-names .zh {
+  color: var(--poke-red);
+}
+
+.result-names .en {
+  color: var(--poke-blue);
+}
+
+.result-meta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.pill {
+  background: #f0f0f0;
+  font-weight: bold;
+  padding: 6px 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 0.9rem;
+}
+
+.pill.gen {
+  background: var(--poke-yellow);
+}
+
+.type-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.type-chip {
+  color: #fff;
+  font-weight: bold;
+  padding: 6px 14px;
+  border-radius: 16px;
+  font-size: 0.85rem;
+}
+
+.confidence {
+  text-align: center;
+  margin-top: 12px;
+  color: #777;
+  font-size: 0.85rem;
+}
+
+footer {
+  text-align: center;
+  margin-top: 24px;
+  color: #666;
+  font-size: 0.8rem;
+}
+
+footer a {
+  color: var(--poke-blue);
+}
